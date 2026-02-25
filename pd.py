@@ -9,7 +9,7 @@ time.sleep(2)
 
 # ---------------- YOLO MODEL ----------------
 model = YOLO("yolov8n.pt")
-cap = cv2.VideoCapture(0)
+cap = cap = cv2.VideoCapture("http://10.82.201.78:8080/video")
 
 cv2.namedWindow("Smart CCTV Energy System", cv2.WINDOW_NORMAL)
 
