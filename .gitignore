@@ -1,0 +1,15 @@
+# Virtual environments
+.venv/
+venv/
+env/
+cctv_ai/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model weights
+*.pt
+
+# VS Code
+.vscode/
