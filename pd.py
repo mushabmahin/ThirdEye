@@ -9,15 +9,16 @@ time.sleep(2)
 
 # ---------------- YOLO MODEL ----------------
 model = YOLO("yolov8n.pt")
-cap = cap = cv2.VideoCapture("http://10.82.201.78:8080/video")
+##cap = cap = cv2.VideoCapture("http://10.82.201.78:8080/video")
+cap = cv2.VideoCapture(0)
 
 cv2.namedWindow("Smart CCTV Energy System", cv2.WINDOW_NORMAL)
 
 # ---------------- ZONES (Top=Lights, Bottom=Fans) ----------------
 ZONES = {
     "Light_Left":   ((0, 0), (640, 360)),
-    "Light_Right":  ((640, 0), (1280, 360)),
-    "Fan_Left":     ((0, 360), (640, 720)),
+    "Fan_Left":  ((640, 0), (1280, 360)),
+    "Light_Right":     ((0, 360), (640, 720)),
     "Fan_Right":    ((640, 360), (1280, 720)),
 }
 
@@ -43,8 +44,8 @@ def get_zone(cx, cy):
 def send_command(zone, state):
     commands = {
         "Light_Left":  ("LL_ON", "LL_OFF"),
-        "Light_Right": ("LR_ON", "LR_OFF"),
-        "Fan_Left":    ("FL_ON", "FL_OFF"),
+        "Fan_Left": ("LR_ON", "LR_OFF"),
+        "Light_Right":    ("FL_ON", "FL_OFF"),
         "Fan_Right":   ("FR_ON", "FR_OFF"),
     }
 
