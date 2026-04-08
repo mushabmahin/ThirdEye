@@ -1,33 +1,50 @@
-# ThirdEye – Real-Time Object Detection System
+# ThirdEye – Smart Energy Management System (Computer Vision + IoT)
+
+## 🔍 Overview
+An AI-powered system that automatically controls electrical devices (lights, fans) based on human presence using computer vision and IoT.
+
+---
 
 ## Problem
-Visually impaired individuals and distracted pedestrians often lack real-time awareness of their surroundings, increasing the risk of accidents. Existing solutions are either expensive, slow, or not optimized for real-time detection on lightweight systems.
+Lights and electrical devices are often left ON in classrooms and offices even when no one is present, leading to unnecessary energy wastage.
+
+---
 
 ## Approach
-Developed a real-time object detection system using YOLOv8 to identify and classify objects from live video input.
+Built a real-time system that detects human presence and automates device control.
 
-The system processes frames from a camera feed and detects objects with bounding boxes and labels in real time. Optimized for speed and efficiency to work on standard hardware.
+### Key Components:
+- **Object Detection:** YOLOv8 Nano model to detect people in video streams  
+- **Zone Mapping:** Maps detected person location to predefined zones  
+- **Control Logic:** Determines which devices should be ON/OFF  
+- **IoT Integration:** Sends commands to ESP32 to control relays  
 
-Key steps:
-- Integrated YOLOv8 pre-trained model for object detection
-- Processed live video stream using OpenCV
-- Implemented frame-by-frame detection and visualization
-- Focused on balancing accuracy and latency
+### Workflow:
+1. Capture live video from CCTV  
+2. Detect humans using YOLOv8  
+3. Map position to zones  
+4. Send control signals to ESP32  
+5. Automatically switch devices ON/OFF  
+
+---
 
 ## Results
-- Achieved real-time object detection with minimal latency  
-- Successfully detected multiple objects simultaneously  
-- Demonstrated reliable performance on standard hardware  
-- Improved situational awareness through visual feedback  
+- Reduced unnecessary power usage by automating device control  
+- Real-time detection and response using lightweight model  
+- Stable operation using temporal smoothing (avoids flickering ON/OFF)  
+
+---
 
 ## Tech Stack
 - Python  
+- YOLOv8 (Ultralytics)  
 - OpenCV  
-- YOLOv8  
-- NumPy  
+- ESP32  
+- Serial Communication  
 
-## Demo
-Run the following command to start the detection system:
+---
 
-```bash
-python pd.py
+## Future Improvements
+- Multi-person tracking  
+- Smarter zone optimization  
+- Deployment in large-scale environments  
